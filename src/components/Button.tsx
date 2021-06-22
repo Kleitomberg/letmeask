@@ -1,15 +1,11 @@
-import {useState} from "react"
+import { ButtonHTMLAttributes} from 'react'
 
-export function Button(){
-const [cont, setCont] = useState(0); //Estado
+import '../styles/button.scss';
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-function incremento(){
-  setCont(cont + 1);
-}
-
+export function Button(props: ButtonProps ){
   return(
-    <button onClick={incremento}> 
-    {cont} 
-    </button>
+    <button className="button" {...props} /> 
+       
   )
 }
