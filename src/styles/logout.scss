@@ -1,0 +1,33 @@
+  .sair{
+    
+    height: 40px;
+    width: auto;
+    border-radius: 8px;
+    overflow: hidden;
+
+    background: transparent;
+    border: 1px  solid #e62a2a;
+    cursor: pointer;
+
+    display: flex;     
+      
+
+      img{
+
+        background: transparent;
+        width: 40px;
+        padding: 6px 6px 6px 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        color: rgba($color: #ffffff, $alpha: 1.0);
+
+      }
+
+      &:not(:disabled):hover{
+        filter: brightness(0.9);
+      }
+    
+
+}

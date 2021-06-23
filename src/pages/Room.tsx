@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { FormEvent, useState } from 'react';
-import { useParams} from 'react-router-dom'
+import { useHistory, useParams} from 'react-router-dom'
 
 import logoImg from '../assets/images/logo.svg';
 import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
+import { Logout } from '../components/Logout';
 import { useAuth } from '../hooks/useAuth';
-import { database } from '../services/firebase';
+import { auth, database } from '../services/firebase';
 
 import '../styles/room.scss';
 
@@ -38,6 +39,7 @@ type RoomParams = {
 export function Room(){
 
   const {user} = useAuth();
+  const history = useHistory();
 
   const params = useParams <RoomParams>(); //generic
 
@@ -93,13 +95,27 @@ export function Room(){
     setNewQuestion('');
   }
 
+  async function singOut(){
+    await auth.signOut()
+
+      
+      history.push('/');
+    
+  }
+
   return(
     <div id="page-room"> 
       <header>
+
         <div className="content">
             <img src={logoImg} alt="LetMeAsk"/>
-            <RoomCode code={roomId} />
+            <div  className="canto">
+            <RoomCode code={roomId}  />
+            <Logout  onClick={singOut} disabled={!user}> </Logout> 
+            </div>
         </div>
+        
+
       </header>
 
       <main>
