@@ -1,36 +1,19 @@
-import { useEffect } from 'react';
+//import { useEffect } from 'react';
 import { FormEvent, useState } from 'react';
-import { useHistory, useParams} from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 
 import logoImg from '../assets/images/logo.svg';
 import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
 import { Logout } from '../components/Logout';
 import { useAuth } from '../hooks/useAuth';
-import { auth, database } from '../services/firebase';
+
+import { database } from '../services/firebase';
 
 import '../styles/room.scss';
-
-type firebaseQuestions = Record<string, {
-  author:{
-    name: string;
-    avatar: string;
-  }
-  content: string;
-  isHighLighted:boolean;
-  isAnswered:boolean;
-}>
-
-type Question = {
-  id: string;
-  author:{
-    name: string;
-    avatar: string;
-  }
-  content: string;
-  isHighLighted:boolean;
-  isAnswered:boolean;
-}
+import '../contexts/AuthContext.tsx';
+import { Questions } from '../components/Questions';
+import { useRoom } from '../hooks/useRoom';
 
 type RoomParams = {
   id: string;
@@ -38,40 +21,15 @@ type RoomParams = {
 
 export function Room(){
 
-  const {user} = useAuth();
-  const history = useHistory();
-
+  //const [] = useState() 
+  const {user} = useAuth();  
   const params = useParams <RoomParams>(); //generic
-
-  const [newQuestion, setNewQuestion] = useState('');
-
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [title, setTitle] = useState('');
-
+  const [newQuestion, setNewQuestion] = useState(''); 
+  
   const roomId = params.id;
 
-  useEffect(() => {
-    const roomRef = database.ref(`rooms/${roomId}`);
-
-    roomRef.on('value', room => {
-      const dabaseRoom = room.val();
-      const firebaseQuestion: firebaseQuestions = dabaseRoom.question ?? {};
-     
-      const parsedQuestions = Object.entries(firebaseQuestion).map(([key, value]) => {
-
-        return {
-          id: key,
-          content: value.content,
-          author: value.author,
-          isHighLighted:value.isHighLighted,
-          isAnswered:value.isAnswered,          
-        }        
-      })
-      setTitle(dabaseRoom.title);
-      setQuestions(parsedQuestions);
-    })
-  }, [roomId]);
-
+  const {title, question} = useRoom(roomId);
+  
   async function handleSendQuestion(event: FormEvent){
     event.preventDefault();
 
@@ -95,12 +53,17 @@ export function Room(){
     setNewQuestion('');
   }
 
-  async function singOut(){
-    await auth.signOut()
+  async function handleLikeQuestion(questionId: string, likeId: string | undefined){
 
-      
-      history.push('/');
-    
+      if(likeId){
+        await database.ref(`rooms/${roomId}/question/${questionId}/likes/${likeId}`).remove()
+        }else{
+
+      await database.ref(`rooms/${roomId}/question/${questionId}/likes`).push({
+          authorId:user?.id,
+      })
+
+  }
   }
 
   return(
@@ -111,7 +74,7 @@ export function Room(){
             <img src={logoImg} alt="LetMeAsk"/>
             <div  className="canto">
             <RoomCode code={roomId}  />
-            <Logout  onClick={singOut} disabled={!user}> </Logout> 
+            <Logout > </Logout> 
             </div>
         </div>
         
@@ -121,7 +84,7 @@ export function Room(){
       <main>
         <div className="room-title">
             <h1> Sala {title}</h1>
-            { questions.length > 0 && <span> {questions.length} Pergunta(s) </span> }
+            { question.length > 0 && <span> {question.length} Pergunta(s) </span> }
 
             
         </div>
@@ -134,7 +97,7 @@ export function Room(){
              />
 
              <div className="form-footer">
-               { user ? (
+               { user ? (                                                                                 
                  <div className="user-info"> 
                     <img src={user.avatar} alt={user.name} />
                     <span> {user.name}  </span>
@@ -147,8 +110,30 @@ export function Room(){
 
              </div>
 
-          </form>       
-          {JSON.stringify(questions)} 
+          </form>     
+          <div className="question_list">
+              {question.map(question => {
+                return(
+                    <Questions
+                    key={question.id}
+                    content ={question.content}
+                    author = {question.author}
+                    >
+                      <button 
+                      className= {`like-button ${question.likeId ? 'liked' : ''}`}
+                      type="button"
+                      aria-label="Marcar como gostei"
+                      onClick={() => handleLikeQuestion(question.id, question.likeId)}
+                      >
+                        { question.likeCount > 0 && <span>{question.likeCount} </span> }
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V13C2 12.4696 2.21071 11.9609 2.58579 11.5858C2.96086 11.2107 3.46957 11 4 11H7M14 9V5C14 4.20435 13.6839 3.44129 13.1213 2.87868C12.5587 2.31607 11.7956 2 11 2L7 11V22H18.28C18.7623 22.0055 19.2304 21.8364 19.5979 21.524C19.9654 21.2116 20.2077 20.7769 20.28 20.3L21.66 11.3C21.7035 11.0134 21.6842 10.7207 21.6033 10.4423C21.5225 10.1638 21.3821 9.90629 21.1919 9.68751C21.0016 9.46873 20.7661 9.29393 20.5016 9.17522C20.2371 9.0565 19.9499 8.99672 19.66 9H14Z" stroke="#737380" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </button>
+                    </Questions>                    
+                );
+              })}
+         </div>
       </main>
     </div> 
   );

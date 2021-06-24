@@ -1,4 +1,4 @@
-
+import '../contexts/AuthContext'
 import { ButtonHTMLAttributes} from 'react'
 import logoutImg from '../assets/images/logout.svg'
 import '../styles/logout.scss';

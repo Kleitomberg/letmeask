@@ -12,7 +12,11 @@ export function RoomCode( props: RoomCodeProps){
   }
 
   return(
-    <button className="room-code" onClick={copyCode}>
+    <button 
+    className="room-code" 
+    aria-label="Clique para copiar o codigo"
+    onClick={copyCode}
+    >
 
       <div>
         <img src={copyImg} alt="copyCode" />

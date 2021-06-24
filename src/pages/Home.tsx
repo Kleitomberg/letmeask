@@ -41,8 +41,13 @@ async function handleJoinRoom(event: FormEvent){
     alert("Sala não Existe.");
     return;
   }
-  history.push(`/rooms/${roomCode}`);
 
+    if(roomRef.val().endeDat){
+      alert("A Sala foi encerrada");
+      return;
+    }
+
+  history.push(`/rooms/${roomCode}`);
 }
 
   return (

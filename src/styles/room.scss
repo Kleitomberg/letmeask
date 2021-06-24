@@ -18,7 +18,9 @@
       .canto{            
         display:flex;
 
-        
+        button{
+          height: 40px;
+        }
                     
      }
 
@@ -108,5 +110,9 @@
           }
       }
     }//fim do form
+
+    .question_list{
+      margin-top: 32px;
+    }
   } // fim do main
 }//fim da page room

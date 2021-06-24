@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { createContext, ReactNode } from "react";
 import { auth } from "../services/firebase";
+import { useHistory} from 'react-router-dom'
 
 type User = {
   id: string;
@@ -24,7 +25,9 @@ export const AuthContext = createContext({} as AuthContextType);
 
 
 export function AuthContextProvider(props: AuthContextProviderProps){
+  
   const [user, setUser] = useState<User>();
+  const history = useHistory();
 
   useEffect(() => {
     const unsubscriber = auth.onAuthStateChanged(user => {
@@ -41,9 +44,12 @@ export function AuthContextProvider(props: AuthContextProviderProps){
         name:displayName,
         avatar:photoURL
       })
-
       }
     })
+
+   
+
+    
     return () => {
       unsubscriber();
     }
@@ -68,7 +74,16 @@ export function AuthContextProvider(props: AuthContextProviderProps){
       })
     }   
   }
-
+  
+  async function singOut(){
+    
+    await auth.signOut()    
+    
+    setUser(undefined);
+    if (!user){ //usuário continua existindo mesmo após chamar o signOut()  PQ?
+      history.push('/');
+    }         
+  } 
 
 return (
   <AuthContext.Provider value={{user, signInWithGoogle}}>
