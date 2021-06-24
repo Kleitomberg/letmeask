@@ -1,3 +1,15 @@
+
+# LetMeAsk
+
+Este projeto foi desenvolvido durante o evento NextLevel Week  Together ou  NLW 6ª edição.
+Com duração de 7 dias como o nome sugere uma semana. 
+
+Durante essa semana diariamente foram lançados os videos aula, 
+smepre com bastante conteudo tudo sendo passado ao mesmo tempo 
+que a aplicação é desenvolvida.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
