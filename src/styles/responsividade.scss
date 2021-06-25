@@ -50,4 +50,26 @@ $breakpoint-desktop: 1025px;
     flex: 5 !important;
     padding: 0 ;
   }
+
+  #page-room{
+    margin: 10px  !important;
+
+    
+
+    header {
+      padding: 24px 6px 24px 6px;
+    border-bottom: 1px solid #e2e2e2;
+    
+    .content{
+      gap: 10px;
+      display: flex;
+    
+
+      button.room-code{
+        display: flex;
+        width: auto;
+      }
+    }}
+
+  }
 }
