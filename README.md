@@ -26,7 +26,7 @@ que a aplicação é desenvolvida.
 - Logout
 - PWA
 - Modal
-- 
+- Dark Theme
 ## ✨ Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
