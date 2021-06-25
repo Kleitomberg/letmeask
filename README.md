@@ -19,7 +19,7 @@ que a aplicação é desenvolvida.
 
 ![LetMeAsk](https://github.com/Kleitomberg/letmeask/blob/master/readme/RESPONSIVE.png)
 
-## 👨‍💻 Proximo Nivel
+## 🚀 Proximo Nivel
   Funcionalidades extras implementadas: 
 
 - Design Responsivo
@@ -47,7 +47,7 @@ Você pode visualizar o layout do projeto através [desse link](https://www.figm
 Utilizando uma das funcionalidades disponibilizadas pelo firebase, a aplicação encontra-se hospedada no seguinte [link](https://letmeask-75f6b.web.app).
 
 
-## 🚀 Como executar
+## 👨‍💻 Como executar
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
