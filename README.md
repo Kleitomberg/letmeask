@@ -6,6 +6,7 @@
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Deploy">Deploy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;  
 </p>
 
@@ -34,6 +35,11 @@ O LetMeAsk é uma aplicação para auxiliar streamers a responder as dúvidas do
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/58GTyesIHz1hccjK4OP3JX/Letmeask-Copy?fuid=753408499345914050). É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
+
+## 🌐 Deploy
+
+Utilizando uma das funcionalidades disponibilizadas pelo firebase, a aplicação encontra-se hospedada no seguinte [link](https://letmeask-75f6b.web.app).
+
 
 ## 🚀 Como executar
 
