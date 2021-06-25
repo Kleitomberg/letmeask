@@ -1,4 +1,47 @@
-# Getting Started with Create React App
+<h1 align="center">
+  <img alt="LetMeAsk" title="LetMeAsk" src="https://github.com/Kleitomberg/letmeask/blob/master/readme/logo.svg.png" />
+</h1>
+
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Deploy">Deploy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;  
+</p>
+
+
+Este projeto foi desenvolvido durante o evento NextLevel Week - Together ou  NLW 6ª edição.
+Durante essa semana diariamente foram lançados os videos aula, 
+smepre com bastante conteudo tudo sendo passado ao mesmo tempo 
+que a aplicação é desenvolvida.
+<br>
+
+![LetMeAsk](https://github.com/Kleitomberg/letmeask/blob/master/LetMeAsk.png)
+
+## ✨ Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- [React](https://reactjs.org)
+- [Sass](https://sass-lang.com)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Firebase](https://firebase.google.com/)
+
+## 💻 Projeto
+
+O LetMeAsk é uma aplicação para auxiliar streamers a responder as dúvidas do seu público, onde muitas vezes o chat da live é muito difícil de acompanhar. 
+
+## 🔖 Layout
+
+Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/58GTyesIHz1hccjK4OP3JX/Letmeask-Copy?fuid=753408499345914050). É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
+
+## 🌐 Deploy
+
+Utilizando uma das funcionalidades disponibilizadas pelo firebase, a aplicação encontra-se hospedada no seguinte [link](https://letmeask-75f6b.web.app).
+
+
+## 🚀 Como executar
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
