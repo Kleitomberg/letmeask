@@ -24,6 +24,7 @@ que a aplicação é desenvolvida.
 
 - Design Responsivo
 - Logout
+- PWA
 - 
 ## ✨ Tecnologias
 
