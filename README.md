@@ -19,7 +19,7 @@ que a aplicação é desenvolvida.
 
 ![LetMeAsk](https://github.com/Kleitomberg/letmeask/blob/master/readme/RESPONSIVE.png)
 
-## 🚀 Proximo Nivel
+## 🚀 Próximo Nível
   Funcionalidades extras implementadas: 
 
 - Design Responsivo
