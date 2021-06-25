@@ -17,7 +17,7 @@ smepre com bastante conteudo tudo sendo passado ao mesmo tempo
 que a aplicação é desenvolvida.
 <br>
 
-![LetMeAsk](https://github.com/Kleitomberg/letmeask/blob/master/LetMeAsk.png)
+![LetMeAsk](https://github.com/Kleitomberg/letmeask/blob/master/readme/RESPONSIVE.png)
 
 ## ✨ Tecnologias
 
