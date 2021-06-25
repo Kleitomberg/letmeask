@@ -9,7 +9,7 @@ smepre com bastante conteudo tudo sendo passado ao mesmo tempo
 que a aplicação é desenvolvida.
 
 
-![LetMeAsk]()
+![LetMeAsk](https://github.com/Kleitomberg/letmeask/blob/master/LetMeAsk.png)
 
 # Getting Started with Create React App
 
