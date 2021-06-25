@@ -6,13 +6,15 @@ import { Room } from './pages/Room';
 
 import {AuthContextProvider} from './contexts/AuthContext'
 import { AdminRoom } from './pages/AdminRoom';
+import {Connection} from './pages/Connection';
 
 function App() {  
   return ( 
     <BrowserRouter>  
       <AuthContextProvider >
         <Switch>
-          <Route path="/" exact component= {Home} /> 
+        <Route path="/" exact component= {Connection} /> 
+          <Route path="/home" component= {Home} /> 
           <Route path="/rooms/new"  component= {NewRoom} /> 
           <Route path="/rooms/:id" component= {Room} /> 
 

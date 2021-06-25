@@ -8,7 +8,7 @@
 aside{
   flex:7;
 
-  background: #835afd;
+  background: #cfc2f7;
   color:#fff;
   
   display: flex;
@@ -86,7 +86,7 @@ main{
         margin-top: 16px;
 
         a{
-          color: #835afd;
+          color: #605977;
           text-decoration: none;
         }
 
@@ -107,6 +107,10 @@ main{
         p{
           font-size: 20px;
         }
+      }
+      .h2{
+       margin-top: 20px;
+       margin-bottom: -10px;
       }
   }
   .criarSala{

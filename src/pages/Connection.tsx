@@ -1,5 +1,5 @@
 
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { FormEvent } from 'react';
 import ilustracaoImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg'
@@ -16,7 +16,7 @@ import { database } from '../services/firebase';
 
 
 
-export function Home() {
+export function Connection() {
 const history = useHistory();
 const {user, signInWithGoogle } = useAuth()
 const [roomCode, setRoomCode] = useState('');
@@ -55,48 +55,26 @@ async function handleJoinRoom(event: FormEvent){
 }
 
   return (
+
  <div id="page-auth">
    <aside> 
     <img src={ilustracaoImg}alt="ilustração" />
-    <strong> Crie salas de Q&amp;A ao-vivo </strong>
+    <strong> Crie salas para responder perguntas ao-vivo</strong>
     <p> Tire as duvidas da sua audiência em temo-real</p>
    </aside>
+
    <main> 
      <div className="main-content"> 
        <img src= {logoImg} alt="LetMeAsk"/>
-
-        {!user && (
-          <button onClick={handleCreateRoom} className="criarSala"> 
+       <p className="h2"> Faça login para continuar</p>
+       <button onClick={handleCreateRoom} className="criarSala"> 
           <img src={googleImg} alt="google logo"/>
-          Criar sala com o Google
+          Fazer login com o Google
         </button>
-
-         
-        )}
-
-         <div className="user-logado">
-
-        <img src={user?.avatar} alt={user?.name} />
-        <p>{user?.name}</p>
-
-        </div>
-       
-        <div className="separador"> Entre em uma sala </div>
-        <form onSubmit={handleJoinRoom}> 
-            <input 
-            type="text"
-            placeholder="Digite o código da sala"   
-            onChange={event => setRoomCode(event.target.value)}  
-            value={roomCode}
-            />
-
-            <Button type="submit">
-              Entrar na sala
-            </Button>
-        </form>
-        <p> Criar uma sala <Link to="/rooms/new"> Clique aqui</Link> </p> 
-       </div> 
+      </div> 
    </main>
+
  </div> 
+
   )
 }
