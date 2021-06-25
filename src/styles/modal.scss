@@ -1,0 +1,115 @@
+#modal-delete {
+  top: 50%;
+  left: 25%;
+  right: auto;
+  
+  background: #F8F8F8;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 230px;
+  display: block;
+  position: absolute;
+  border-radius: 8px;
+  text-align: -webkit-center;
+  margin: 0;
+
+  img{
+    width: 35px;
+    margin: 10px;
+  }
+  h3{
+    font-family: 'Poppins', sans-serif;
+  }
+  p{
+    font-family: 'roboto', sans-serif;
+    font-size: 14px;
+    margin: 10px;
+  }
+
+  .modal-buttons {
+    /* text-align: -webkit-center; */
+    padding-top: 16px;
+    /* margin: 0 !important; */
+    gap: 10px;
+    /* padding-left: 0; */
+    /* padding-right: 0; */
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* padding: 0px; */
+
+
+button.cancelar {
+    gap: 10px;
+    background-color: #e2e2e2;
+    border: none;
+    Width: 100px;
+    Height: 30px;
+    /* Top: 1px; */
+    /* Left: 140px; */
+    border-radius: 8px;
+    Padding: 0;
+    padding-left: 10p;
+    cursor: pointer;
+    font: 500;
+    font-size: 14px;  
+    color: #737380
+      ;
+}
+
+
+button.confirmar {
+    /* background: #DBDCDD; */
+    /* gap: 10px; */
+    background-color: #E73F5D;
+    border: none;
+    Width: 100px;
+    Height: 30px;
+    /* Top: 1px; */
+    /* Left: 140px; */
+    border-radius: 8px;
+    Padding: 14px, 32px, 15px, 32px;
+    gap: 10px;
+    cursor: pointer;
+    color: #fff;
+    font: 500;
+    font-size: 14px;
+}
+
+
+
+}
+
+
+
+}
+
+$breakpoint-mobile: 200px;
+
+@media (min-width: $breakpoint-mobile) and (max-width: 425px) {
+
+  #modal-delete {
+    top: 25%;
+    left: 10%;
+    right: auto;
+    background: #F8F8F8;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    /* padding: 10px; */
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 230px;
+    display: block;
+    position: absolute;
+    border-radius: 8px;
+    text-align: -webkit-center;
+    margin: 0;
+  }
+  
+
+}

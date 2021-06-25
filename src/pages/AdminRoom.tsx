@@ -2,6 +2,9 @@
 //import { useState } from 'react';
 import {  useHistory, useParams} from 'react-router-dom'
 
+import Modal from 'react-modal';
+
+import { Fragment } from 'react';
 import logoImg from '../assets/images/logo.svg';
 import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
@@ -9,15 +12,18 @@ import { RoomCode } from '../components/RoomCode';
 //import { useAuth } from '../hooks/useAuth';
 import deleteImg from '../assets/images/delete.svg';
 import checkImg from '../assets/images/check.svg';
+import excluirImg from '../assets/images/Icon - Excluir.svg'
 import ansewerImg from '../assets/images/answer.svg';
 
 import {database } from '../services/firebase';
 
 import '../styles/room.scss';
 import '../styles/responsividade.scss';
+import '../styles/modal.scss';
 import '../contexts/AuthContext.tsx';
 import { Questions } from '../components/Questions';
 import { useRoom } from '../hooks/useRoom';
+import { useState } from 'react';
 //import { async } from 'q';
 
 type RoomParams = {
@@ -28,6 +34,8 @@ export function AdminRoom(){
 
   //const [] = useState() 
   //const {user} = useAuth();  
+
+  const [questionIdModalOpen, setQuestionIdModalOpen] = useState<string | undefined>();
   const history = useHistory()
   const params = useParams <RoomParams>(); //generic
  // const [newQuestion, setNewQuestion] = useState(''); 
@@ -47,10 +55,9 @@ export function AdminRoom(){
 
   //Colocar modal posteriormente 
   async function HandleDeleteQuestion(questionId: string){
-    if (window.confirm('Tem certeza que você deseja excluir esa pergunta?')){
-
-      await database.ref(`rooms/${roomId}/question/${questionId}`).remove();
-    }
+    
+    await database.ref(`rooms/${roomId}/question/${questionId}`).remove();
+    
   }
 
   async function HandleCheckQuestionAsAnswered(questionId: string){
@@ -93,6 +100,7 @@ export function AdminRoom(){
           <div className="question_list">
               {question.map(  question => {
                 return(
+                  <Fragment key={question.id}>
                     <Questions
                     key={question.id}
                     content ={question.content}
@@ -124,19 +132,37 @@ export function AdminRoom(){
                      
                       <button 
                       type="button"
-                      onClick={() => HandleDeleteQuestion(question.id)}
+                      onClick={() => setQuestionIdModalOpen(question.id)}
                       > 
                         <img src={deleteImg} alt="remover pergunta"/>
                           
                       </button>
 
-
                     </Questions>
+                    
+                    <Modal isOpen={questionIdModalOpen === question.id}
+                    onRequestClose={() => setQuestionIdModalOpen(undefined)}
+                    className="modal"
+                    >
+                      <div id="modal-delete">
+                        <img src={excluirImg} alt="deletar" />
+                        <h3>Excluir pergunta</h3>
+                        <p>Tem certeza que você deseja excluir esa pergunta?</p>
+                        <div className="modal-buttons"> 
+                        <button className="cancelar" onClick={() => setQuestionIdModalOpen(undefined)}> Cancelar</button>
+                        <button className="confirmar" onClick={() => HandleDeleteQuestion(question.id)}> Sim, excluir</button>
+                        
+                      </div>
+                    </div>
+                    </Modal>
+                    </Fragment>
                 );
               })}
 
          </div>
       </main>
+      
+      
     </div> 
   );
 }
