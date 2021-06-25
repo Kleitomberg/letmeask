@@ -1,6 +1,6 @@
 //import { useEffect } from 'react';
-import { FormEvent, useState } from 'react';
-import { useParams} from 'react-router-dom'
+import { FormEvent, useState,} from 'react';
+import { useParams, Link, useHistory} from 'react-router-dom'
 
 import logoImg from '../assets/images/logo.svg';
 import { Button } from '../components/Button';
@@ -8,23 +8,34 @@ import { RoomCode } from '../components/RoomCode';
 import { Logout } from '../components/Logout';
 import { useAuth } from '../hooks/useAuth';
 
-import { database } from '../services/firebase';
+import { auth, database } from '../services/firebase';
 
 import '../styles/room.scss';
+import '../styles/responsividade.scss';
 import '../contexts/AuthContext.tsx';
 import { Questions } from '../components/Questions';
 import { useRoom } from '../hooks/useRoom';
+import { AuthContext } from '../contexts/AuthContext';
 
 type RoomParams = {
   id: string;
 }
 
+type User = {
+  id: string;
+  name: string;
+  avatar: string;
+}
 export function Room(){
 
-  //const [] = useState() 
+
+  
+  const history = useHistory() 
   const {user} = useAuth();  
   const params = useParams <RoomParams>(); //generic
   const [newQuestion, setNewQuestion] = useState(''); 
+
+  
   
   const roomId = params.id;
 
@@ -66,6 +77,17 @@ export function Room(){
   }
   }
 
+  async function singOut(){
+    
+    await auth.signOut()    
+    
+    history.push('/');
+
+    if (!user){ //usuário continua existindo mesmo após chamar o signOut()  PQ?
+      history.push('/');
+    }         
+  } 
+
   return(
     <div id="page-room"> 
       <header>
@@ -74,7 +96,7 @@ export function Room(){
             <img src={logoImg} alt="LetMeAsk"/>
             <div  className="canto">
             <RoomCode code={roomId}  />
-            <Logout > </Logout> 
+            <Logout onClick={singOut} > </Logout> 
             </div>
         </div>
         
@@ -103,7 +125,7 @@ export function Room(){
                     <span> {user.name}  </span>
                   </div>
                ) : (
-                  <span> Para enviar sua pergunta, <button> faça login </button> </span>
+                  <span> Para enviar sua pergunta, <Link to="/"> faça login </Link> </span>
                ) }
               
               <Button type="submit" disabled={!user}> Enviar pergunta </Button>

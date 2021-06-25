@@ -10,6 +10,7 @@ import logoImg from '../assets/images/logo.svg'
 import {Button} from '../components/Button';
 import { database } from '../services/firebase';
 import '../styles/auth.scss';
+import '../styles/responsividade.scss';
 
 import { useAuth } from '../hooks/useAuth'
 
@@ -48,12 +49,20 @@ export function NewRoom() {
  <div id="page-auth">
    <aside> 
     <img src={ilustracaoImg}alt="ilustração" />
-    <strong> Crie salas de Q&amp;A ao-vivo </strong>
+    <strong> Mande sua pergunta ao-vivo </strong>
     <p> Tire as duvidas da sua audiência em temo-real</p>
    </aside>
    <main> 
      <div className="main-content"> 
        <img src= {logoImg} alt="LetMeAsk"/>
+
+       <div className="user-logado">
+
+        <img src={user?.avatar} alt={user?.name} />
+        <p>{user?.name}</p>
+
+        </div>
+
        <h2> Criar uma Nova Sala</h2>
        
         <form onSubmit= {handleCreateRoom}> 

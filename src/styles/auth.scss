@@ -81,14 +81,32 @@ main{
         }
       }
       p{
-        font-size:14px;
+        font-size:18px;
         color: #737380;
         margin-top: 16px;
 
         a{
-          color: #e559f9;
+          color: #835afd;
+          text-decoration: none;
         }
 
+      }
+
+      .user-logado{         
+        margin-top: 25px;
+        margin-bottom: -25px;
+        background:transparent;
+        
+
+        img{
+          border-radius: 50%;
+          width: 100px;
+          height: 100px;
+        }
+
+        p{
+          font-size: 20px;
+        }
       }
   }
   .criarSala{
@@ -140,4 +158,5 @@ main{
 
     }
   }
+  
 }

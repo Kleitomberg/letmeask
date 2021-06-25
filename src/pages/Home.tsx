@@ -9,6 +9,7 @@ import googleImg from '../assets/images/google-icon.svg'
 import {Button} from '../components/Button';
 
 import '../styles/auth.scss';
+import '../styles/responsividade.scss';
 import { useAuth } from '../hooks/useAuth'
 import { useState } from 'react';
 import { database } from '../services/firebase';
@@ -34,6 +35,9 @@ async function handleJoinRoom(event: FormEvent){
   if (roomCode.trim() === ''){
     return;
   }
+  
+  
+    
 
   const roomRef = await database.ref(`rooms/${roomCode}`).get();
   

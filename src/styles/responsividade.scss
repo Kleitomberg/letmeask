@@ -1,0 +1,53 @@
+//Responsividade
+$breakpoint-mobile: 300px;
+$breakpoint-tablet: 426px;
+$breakpoint-desktop: 1025px;
+
+
+@media (min-width: $breakpoint-mobile) and (max-width: 425px) {
+
+  #page-auth aside{
+    display: none !important;
+  }
+
+  #page-room{
+    margin: 10px  !important;
+
+    
+
+    header {
+      padding: 24px 6px 24px 6px;
+    border-bottom: 1px solid #e2e2e2;
+    
+    .content{
+      gap: 10px;
+      display: flex;
+    
+
+      button.room-code{
+        display: block;
+        width: 50px;
+      }
+    }}
+
+  }
+
+}
+@media (min-width: $breakpoint-tablet) and (max-width: 1024px) {
+  
+  #page-auth aside{
+   
+    display: flex;
+    flex: 1 !important;
+    
+    padding: 0px 50px;
+    color: #fff;
+    
+  }
+
+  #page-auth main{
+    display: flex;
+    flex: 5 !important;
+    padding: 0 ;
+  }
+}

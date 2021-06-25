@@ -14,6 +14,7 @@ import ansewerImg from '../assets/images/answer.svg';
 import {database } from '../services/firebase';
 
 import '../styles/room.scss';
+import '../styles/responsividade.scss';
 import '../contexts/AuthContext.tsx';
 import { Questions } from '../components/Questions';
 import { useRoom } from '../hooks/useRoom';
