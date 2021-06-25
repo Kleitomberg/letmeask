@@ -17,8 +17,15 @@ smepre com bastante conteudo tudo sendo passado ao mesmo tempo
 que a aplicação é desenvolvida.
 <br>
 
-![LetMeAsk](https://github.com/Kleitomberg/letmeask/blob/master/LetMeAsk.png)
+![LetMeAsk](https://github.com/Kleitomberg/letmeask/blob/master/readme/RESPONSIVE.png)
 
+## 🚀 Próximo Nível
+  Funcionalidades extras implementadas: 
+
+- Design Responsivo
+- Logout
+- PWA
+- 
 ## ✨ Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -41,7 +48,7 @@ Você pode visualizar o layout do projeto através [desse link](https://www.figm
 Utilizando uma das funcionalidades disponibilizadas pelo firebase, a aplicação encontra-se hospedada no seguinte [link](https://letmeask-75f6b.web.app).
 
 
-## 🚀 Como executar
+## 👨‍💻 Como executar
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
