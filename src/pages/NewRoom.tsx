@@ -11,14 +11,18 @@ import {Button} from '../components/Button';
 import { database } from '../services/firebase';
 import '../styles/auth.scss';
 import '../styles/responsividade.scss';
+import '../styles/global.scss';
 
 import { useAuth } from '../hooks/useAuth'
+import { useTheme } from '../hooks/useTheme';
 
 
 
 
 export function NewRoom() {
 
+
+  const {theme, toggleTheme} = useTheme();
  const {user} = useAuth();
 
  const history = useHistory();
@@ -46,13 +50,19 @@ export function NewRoom() {
   }
 
   return (
- <div id="page-auth">
+ <div id="page-auth" className={theme}>
    <aside> 
     <img src={ilustracaoImg}alt="ilustração" />
     <strong> Mande sua pergunta ao-vivo </strong>
     <p> Tire as duvidas da sua audiência em temo-real</p>
    </aside>
    <main> 
+
+        <button onClick={toggleTheme} className="coress">
+
+            
+      Thema: {theme}
+      </button>
      <div className="main-content"> 
        <img src= {logoImg} alt="LetMeAsk"/>
 

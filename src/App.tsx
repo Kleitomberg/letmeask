@@ -7,14 +7,16 @@ import { Room } from './pages/Room';
 import {AuthContextProvider} from './contexts/AuthContext'
 import { AdminRoom } from './pages/AdminRoom';
 import {Connection} from './pages/Connection';
+import { ThemeContextProvider } from './contexts/ThemeContext';
 
 function App() {  
   return ( 
     <BrowserRouter>  
+    <ThemeContextProvider>
       <AuthContextProvider >
         <Switch>
         <Route path="/" exact component= {Connection} /> 
-          <Route path="/home" component= {Home} /> 
+          <Route path="/home" exact component= {Home} /> 
           <Route path="/rooms/new"  component= {NewRoom} /> 
           <Route path="/rooms/:id" component= {Room} /> 
 
@@ -22,6 +24,7 @@ function App() {
 
           </Switch>
         </AuthContextProvider>    
+        </ThemeContextProvider>
       </BrowserRouter>
   );
 }

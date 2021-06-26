@@ -15,29 +15,42 @@ import '../styles/responsividade.scss';
 import '../contexts/AuthContext.tsx';
 import { Questions } from '../components/Questions';
 import { useRoom } from '../hooks/useRoom';
-import { AuthContext } from '../contexts/AuthContext';
+//import { AuthContext } from '../contexts/AuthContext';
+import { useEffect } from 'react';
+import { useTheme } from '../hooks/useTheme';
 
 type RoomParams = {
   id: string;
 }
-
+/*
 type User = {
   id: string;
   name: string;
   avatar: string;
-}
+}*/
 export function Room(){
 
 
-  
+  const {theme} = useTheme();
   const history = useHistory() 
   const {user} = useAuth();  
   const params = useParams <RoomParams>(); //generic
   const [newQuestion, setNewQuestion] = useState(''); 
 
+
+    useEffect(() => {
+      
+        if(!user){
+          history.push('/')
+        }
+        
+    }, [user,history])
+
   
   
   const roomId = params.id;
+
+
 
   const {title, question} = useRoom(roomId);
   
@@ -89,7 +102,7 @@ export function Room(){
   } 
 
   return(
-    <div id="page-room"> 
+    <div id="page-room" className={theme}> 
       <header>
 
         <div className="content">

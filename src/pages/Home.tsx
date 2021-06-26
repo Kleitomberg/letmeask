@@ -1,9 +1,12 @@
 
+
+
 import { useHistory, Link } from 'react-router-dom'
 import { FormEvent } from 'react';
 import ilustracaoImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg'
 import googleImg from '../assets/images/google-icon.svg'
+//import cores from '../assets/images/palette.png'
 
 
 import {Button} from '../components/Button';
@@ -13,6 +16,7 @@ import '../styles/responsividade.scss';
 import { useAuth } from '../hooks/useAuth'
 import { useState } from 'react';
 import { database } from '../services/firebase';
+import { useTheme } from '../hooks/useTheme';
 
 
 
@@ -20,6 +24,8 @@ export function Home() {
 const history = useHistory();
 const {user, signInWithGoogle } = useAuth()
 const [roomCode, setRoomCode] = useState('');
+
+const {theme, toggleTheme} = useTheme();
 
 async function handleCreateRoom(){
   if (!user){
@@ -55,13 +61,24 @@ async function handleJoinRoom(event: FormEvent){
 }
 
   return (
- <div id="page-auth">
+ <div id="page-auth" className={theme}>
    <aside> 
+     
+
+        
+
+
     <img src={ilustracaoImg}alt="ilustração" />
     <strong> Crie salas de Q&amp;A ao-vivo </strong>
     <p> Tire as duvidas da sua audiência em temo-real</p>
    </aside>
    <main> 
+   
+     <button onClick={toggleTheme} className="coress">
+
+      
+       Thema: {theme}
+     </button>
      <div className="main-content"> 
        <img src= {logoImg} alt="LetMeAsk"/>
 

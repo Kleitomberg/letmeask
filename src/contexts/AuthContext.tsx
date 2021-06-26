@@ -14,6 +14,8 @@ type User = {
 type AuthContextType = {
 user:User | undefined;
 signInWithGoogle: () => Promise<void>;
+singOut: () => Promise<void>;
+
 }
 
 type AuthContextProviderProps = {
@@ -29,6 +31,8 @@ export function AuthContextProvider(props: AuthContextProviderProps){
   const [user, setUser] = useState<User>();
   const history = useHistory();
 
+  const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
     const unsubscriber = auth.onAuthStateChanged(user => {
       if(user){
@@ -44,6 +48,7 @@ export function AuthContextProvider(props: AuthContextProviderProps){
         name:displayName,
         avatar:photoURL
       })
+      setLoading(false)
       }
     })
 
@@ -85,8 +90,12 @@ export function AuthContextProvider(props: AuthContextProviderProps){
     }         
   } 
 
+  if(loading){
+    return <p className='loading'> Carregando...</p>
+  }
+
 return (
-  <AuthContext.Provider value={{user, signInWithGoogle}}>
+  <AuthContext.Provider value={{user, signInWithGoogle,singOut}}>
       {props.children}
   </AuthContext.Provider>
 

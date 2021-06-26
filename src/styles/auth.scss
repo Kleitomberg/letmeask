@@ -4,6 +4,7 @@
   align-items: stretch;
   height: 100vh;
 
+ 
 
 aside{
   flex:7;
@@ -44,6 +45,28 @@ main{
   display:flex;
   align-items: center;
   justify-content: center;
+
+
+  .coress{
+    position: absolute;
+    top: 2.7%;
+    left: 02%;
+
+    background: #835afd;
+    border-radius: 10px;
+    border: none;
+    width:85px;
+    font-size: 12px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    img{
+    width: 30px;
+    }
+  }
 }
   .main-content{
     display:flex;
@@ -109,8 +132,8 @@ main{
         }
       }
       .h2{
-       margin-top: 20px;
-       margin-bottom: -10px;
+       margin-top: 50px;
+       margin-bottom: -20px;
       }
   }
   .criarSala{

@@ -2,12 +2,26 @@
   margin: 0;
   padding:0;
   box-sizing: border-box;
+
+  &.dark{
+    background-color: #0c0c1b;
+
+    h2{
+      color: #fff;
+    }
+    .h2{
+      color: #fff !important;
+    }
+    
+  }
 }
 
 
 body{
   background: #f8f8f8;
   color:#292920;
+
+ 
 }
 
 body, input, button, textarea{
