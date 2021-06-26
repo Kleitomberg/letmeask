@@ -25,7 +25,8 @@ que a aplicação é desenvolvida.
 - Design Responsivo
 - Logout
 - PWA
-- 
+- Modal
+- Dark Theme
 ## ✨ Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
